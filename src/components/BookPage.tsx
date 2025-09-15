@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import "./BookPage.css";
 
 interface Poem {
   title: string;
@@ -34,12 +35,12 @@ const BookPage = ({
   };
 
   const renderSpecialBirthdayPage = () => (
-    <div className="book-page h-full flex flex-col justify-center overflow-y-auto">
-      <div className="text-center space-y-6 max-w-2xl mx-auto px-4">
-        <div className="text-6xl mb-4">🎂</div>
-        <h2 className="poem-title">Queen Turns 21!</h2>
-        <div className="poem-text italic text-center">
-          <p className="mb-4 leading-relaxed">
+    <div className="book-page h-full flex flex-col">
+      <div className="text-center space-y-6 max-w-2xl mx-auto px-4 py-8 md:py-12">
+        <div className="text-6xl mb-4 animate-fade-in">🎂</div>
+        <h2 className="poem-title text-2xl md:text-3xl lg:text-4xl mb-8">Queen Turns 21!</h2>
+        <div className="poem-text italic text-center overflow-y-auto max-h-[60vh] md:max-h-[65vh] scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent px-2">
+          <p className="mb-4 leading-relaxed text-base md:text-lg lg:text-xl">
             "Today the world shines brighter than sun,
             <br /> For it crowns my queen, who turns twenty-one.
             <br /> From stranger to friend, to love so true,
@@ -90,15 +91,17 @@ const BookPage = ({
   );
 
   const renderPoemPage = (poem: Poem) => (
-    <div className="book-page h-full flex flex-col justify-center overflow-y-auto">
-      <div className="space-y-6 max-w-2xl mx-auto px-4">
-        <h2 className="poem-title text-center">{poem.title}</h2>
-        <div className="poem-text text-center leading-relaxed">
-          {poem.poem.split("\n").map((line, index) => (
-            <p key={index} className="mb-2">
-              {line}
-            </p>
-          ))}
+    <div className="book-page h-full flex flex-col">
+      <div className="space-y-6 max-w-2xl mx-auto px-4 py-8 md:py-12 w-full">
+        <h2 className="poem-title text-center text-2xl md:text-3xl lg:text-4xl mb-8">{poem.title}</h2>
+        <div className="poem-container overflow-y-auto max-h-[60vh] md:max-h-[65vh] scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent">
+          <div className="poem-text text-center leading-relaxed text-base md:text-lg lg:text-xl px-2">
+            {poem.poem.split("\n").map((line, index) => (
+              <p key={index} className="mb-2">
+                {line}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -116,11 +119,11 @@ const BookPage = ({
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 overflow-hidden">
-      <div className="relative max-w-4xl w-full mx-auto">
+    <div className="min-h-screen flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+      <div className="relative w-full mx-auto max-w-[95vw] md:max-w-4xl">
         {/* Book container */}
         <div
-          className="relative rounded-lg shadow-2xl overflow-hidden min-h-[70vh] max-h-[85vh]"
+          className="relative rounded-lg shadow-2xl overflow-hidden min-h-[80vh] sm:min-h-[70vh] max-h-[90vh] sm:max-h-[85vh]"
           style={{
             background: "var(--gradient-page)",
             boxShadow: "var(--shadow-book)",
@@ -136,32 +139,34 @@ const BookPage = ({
           </div>
 
           {/* Navigation */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 z-10">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 0 || isFlipping}
-              className="text-gold hover:text-gold-light hover:bg-royal-purple/20 border border-gold/30"
-            >
-              <ChevronLeft className="w-4 h-4 mr-1" />
-              Previous
-            </Button>
+          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 z-20">
+            <div className="flex items-center space-x-2 sm:space-x-4 backdrop-blur-sm bg-black/20 rounded-full p-2 border border-gold/20">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 0 || isFlipping}
+                className="text-gold hover:text-gold-light hover:bg-royal-purple/20 border border-gold/30 h-8 px-2 sm:px-4"
+              >
+                <ChevronLeft className="w-4 h-4 sm:mr-1" />
+                <span className="hidden sm:inline">Previous</span>
+              </Button>
 
-            <span className="text-sm text-gold font-serif font-semibold px-4 py-2 bg-royal-purple/30 rounded-full border border-gold/50 backdrop-blur-sm">
-              Page {currentPage + 1} of {totalPages}
-            </span>
+              <span className="text-xs sm:text-sm text-gold/80 px-2">
+                {currentPage + 1} / {totalPages}
+              </span>
 
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages - 1 || isFlipping}
-              className="text-gold hover:text-gold-light hover:bg-royal-purple/20 border border-gold/30"
-            >
-              Next
-              <ChevronRight className="w-4 h-4 ml-1" />
-            </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages - 1 || isFlipping}
+                className="text-gold hover:text-gold-light hover:bg-royal-purple/20 border border-gold/30 h-8 px-2 sm:px-4"
+              >
+                <span className="hidden sm:inline">Next</span>
+                <ChevronRight className="w-4 h-4 sm:ml-1" />
+              </Button>
+            </div>
           </div>
         </div>
 
