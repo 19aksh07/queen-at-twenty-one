@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Royal Purple & Gold Romantic Design System */
+
+@layer base {
+  :root {
+    /* Dark Romantic Theme - Better Contrast */
+    --background: 260 30% 5%;
+    --foreground: 45 15% 95%;
+
+    --card: 260 25% 10%;
+    --card-foreground: 45 15% 95%;
+
+    --popover: 260 25% 10%;
+    --popover-foreground: 45 15% 95%;
+
+    --primary: 270 85% 65%;
+    --primary-foreground: 260 30% 5%;
+
+    --secondary: 45 100% 75%;
+    --secondary-foreground: 260 30% 5%;
+
+    --muted: 260 20% 25%;
+    --muted-foreground: 45 15% 85%;
+
+    --accent: 45 95% 70%;
+    --accent-foreground: 260 30% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 15% 95%;
+
+    --border: 260 25% 30%;
+    --input: 260 25% 15%;
+    --ring: 270 85% 65%;
+
+    --radius: 0.75rem;
+
+    /* High Contrast Dark Colors */
+    --dark-black-purple: 260 30% 5%;
+    --dark-purple: 260 25% 12%;
+    --royal-purple: 270 85% 65%;
+    --royal-purple-light: 270 80% 75%;
+    --royal-purple-dark: 270 90% 55%;
+    --gold: 45 100% 75%;
+    --gold-light: 45 100% 85%;
+    --gold-dark: 45 95% 65%;
+    --dark-surface: 260 25% 10%;
+    --romantic-text: 45 15% 95%;
+
+    /* High Contrast Gradients */
+    --gradient-royal: linear-gradient(135deg, hsl(270 90% 55%), hsl(270 85% 65%));
+    --gradient-romantic: linear-gradient(135deg, hsl(260 30% 5%), hsl(260 25% 12%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 75%), hsl(45 100% 85%));
+    --gradient-page: linear-gradient(135deg, hsl(260 25% 10%), hsl(260 20% 15%));
+    
+    /* Enhanced Shadows */
+    --shadow-romantic: 0 10px 30px -5px hsl(270 85% 65% / 0.4);
+    --shadow-book: 0 25px 50px -12px hsl(270 85% 65% / 0.5);
+    --shadow-page: 0 8px 25px -5px hsl(270 85% 65% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-serif;
+    background: var(--gradient-romantic);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Romantic Typography */
+  .title-romantic {
+    @apply font-display text-6xl md:text-8xl font-bold;
+    background: var(--gradient-royal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px hsl(var(--royal-purple) / 0.3);
+  }
+
+  .subtitle-romantic {
+    @apply font-serif text-xl md:text-2xl text-muted-foreground italic;
+  }
+
+  .poem-title {
+    @apply font-display text-3xl md:text-4xl font-semibold mb-6;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .poem-text {
+    @apply font-serif text-lg md:text-xl leading-relaxed;
+    color: hsl(var(--romantic-text));
+    line-height: 1.8;
+  }
+
+  /* Book Animations */
+  .page-turn {
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .page-turn.flipped {
+    transform: rotateY(-180deg);
+  }
+
+  .book-page {
+    @apply rounded-lg p-8 md:p-12;
+    background: var(--gradient-page);
+    box-shadow: var(--shadow-page);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--gold) / 0.2);
+  }
+
+  /* Royal Button */
+  .btn-royal {
+    @apply px-8 py-4 rounded-full font-display font-semibold text-lg;
+    background: var(--gradient-royal);
+    color: hsl(var(--primary-foreground));
+    border: 2px solid hsl(var(--gold));
+    box-shadow: var(--shadow-romantic);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-royal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px -5px hsl(var(--royal-purple) / 0.3);
+    border-color: hsl(var(--gold-light));
+  }
+
+  /* Romantic decorations */
+  .heart-decoration::before {
+    content: "💜";
+    @apply absolute -top-2 -right-2 text-2xl;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .sparkle {
+    @apply absolute pointer-events-none;
+    animation: sparkle 2s linear infinite;
+  }
+
+  @keyframes sparkle {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+  }
+}
