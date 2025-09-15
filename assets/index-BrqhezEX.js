@@ -210,7 +210,7 @@ For in your heart I see what's true,
 A queen, a guide, my dream, it's you.`},{title:"8. When Love Spoke",poem:`It started with smiles, then nights grew long,
 A whisper of love inside felt strong,
 No longer just friendship, but something new,
-A flame was born—I love you.
+A flame was born, I love you.
 
 Each word from you a sacred song,
 Each silence sweet, where hearts belong,
@@ -286,7 +286,7 @@ It brightens nights and crowns the days.
 With you, I learned what hearts are for,
 Not walls, but doors that open more,
 A gift so rare, so pure, so true,
-Love found its meaning—when I found you.
+Love found its meaning, when I found you.
 `},{title:"14. My Happiness",poem:`My Happiness
 Happiness wears your gentle face,
 A calm, a warmth, a sweet embrace,
