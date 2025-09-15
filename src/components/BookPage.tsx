@@ -35,12 +35,18 @@ const BookPage = ({
   };
 
   const renderSpecialBirthdayPage = () => (
-    <div className="book-page h-full flex flex-col">
-      <div className="text-center space-y-6 max-w-2xl mx-auto px-4 py-8 md:py-12">
-        <div className="text-6xl mb-4 animate-fade-in">🎂</div>
-        <h2 className="poem-title text-2xl md:text-3xl lg:text-4xl mb-8">Queen Turns 21!</h2>
-        <div className="poem-text italic text-center overflow-y-auto max-h-[60vh] md:max-h-[65vh] scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent px-2">
-          <p className="mb-4 leading-relaxed text-base md:text-lg lg:text-xl">
+    <div className="book-page h-full flex flex-col bg-gradient-to-b from-romantic-dark-purple to-romantic-dark-black-purple">
+      <div className="text-center space-y-6 max-w-3xl mx-auto px-4 py-8 md:py-12">
+        <div className="relative">
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-4xl animate-pulse">✨</div>
+          <div className="text-7xl sm:text-8xl mb-4 animate-float">🎂</div>
+        </div>
+        <h2 className="poem-title text-3xl md:text-4xl lg:text-5xl mb-8 romantic-text gradient-text">
+          Queen Turns 21!
+        </h2>
+        <div className="poem-container relative overflow-y-auto max-h-[60vh] md:max-h-[65vh] scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent rounded-lg backdrop-blur-sm bg-black/10">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/5 to-transparent pointer-events-none"></div>
+          <p className="romantic-text leading-relaxed text-lg md:text-xl lg:text-2xl px-6 py-8 relative z-10">
             "Today the world shines brighter than sun,
             <br /> For it crowns my queen, who turns twenty-one.
             <br /> From stranger to friend, to love so true,
@@ -75,29 +81,49 @@ const BookPage = ({
   );
 
   const renderFinalPage = () => (
-    <div className="book-page h-full flex flex-col justify-center overflow-y-auto">
-      <div className="text-center space-y-8 max-w-2xl mx-auto px-4">
-        <div className="text-6xl mb-4">💜</div>
-        <h2 className="poem-title">Have a Great Day, My Dearest Queen!</h2>
-        <Button
-          onClick={onClose}
-          variant="outline"
-          className="mt-8 border-gold text-gold hover:bg-gold hover:text-romantic-dark-black-purple transition-all duration-300"
-        >
-          Close Book
-        </Button>
+    <div className="book-page h-full flex flex-col bg-gradient-to-b from-romantic-dark-purple to-romantic-dark-black-purple">
+      <div className="text-center space-y-8 max-w-3xl mx-auto px-4 py-12">
+        <div className="relative">
+          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-4xl animate-pulse">✨</div>
+          <div className="text-8xl mb-4 animate-float">💜</div>
+          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-4xl animate-pulse" style={{ animationDelay: '0.5s' }}>✨</div>
+        </div>
+        
+        <h2 className="poem-title text-3xl md:text-4xl lg:text-5xl mb-8 romantic-text gradient-text">
+          Have a Great Day, My Dearest Queen!
+        </h2>
+        
+        <div className="relative mt-12">
+          <Button
+            onClick={onClose}
+            variant="outline"
+            className="relative group px-8 py-4 text-lg border-2 border-gold text-gold hover:bg-gold/10 transition-all duration-500"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-gold/20 to-transparent transform -skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></span>
+            <span className="relative z-10 romantic-text">Close Book</span>
+          </Button>
+          
+          <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+        </div>
       </div>
     </div>
   );
 
   const renderPoemPage = (poem: Poem) => (
-    <div className="book-page h-full flex flex-col">
-      <div className="space-y-6 max-w-2xl mx-auto px-4 py-8 md:py-12 w-full">
-        <h2 className="poem-title text-center text-2xl md:text-3xl lg:text-4xl mb-8">{poem.title}</h2>
-        <div className="poem-container overflow-y-auto max-h-[60vh] md:max-h-[65vh] scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent">
-          <div className="poem-text text-center leading-relaxed text-base md:text-lg lg:text-xl px-2">
+    <div className="book-page h-full flex flex-col bg-gradient-to-b from-romantic-dark-purple to-romantic-dark-black-purple">
+      <div className="space-y-6 max-w-3xl mx-auto px-4 py-8 md:py-12 w-full">
+        <div className="text-center mb-8 relative">
+          <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 text-2xl opacity-50">✨</div>
+          <h2 className="poem-title text-center text-2xl md:text-3xl lg:text-4xl inline-block relative">
+            {poem.title}
+            <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl opacity-50">✨</div>
+          </h2>
+        </div>
+        <div className="poem-container relative overflow-y-auto max-h-[60vh] md:max-h-[65vh] scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent rounded-lg backdrop-blur-sm bg-black/10">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/5 to-transparent pointer-events-none"></div>
+          <div className="poem-text text-center leading-relaxed text-base md:text-lg lg:text-xl p-6 relative z-10">
             {poem.poem.split("\n").map((line, index) => (
-              <p key={index} className="mb-2">
+              <p key={index} className="mb-3 romantic-text hover:text-gold/90 transition-colors duration-300">
                 {line}
               </p>
             ))}
@@ -139,64 +165,27 @@ const BookPage = ({
           </div>
 
           {/* Navigation */}
-          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 z-20">
-            <div className="flex items-center space-x-2 sm:space-x-4 backdrop-blur-sm bg-black/20 rounded-full p-2 border border-gold/20">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 0 || isFlipping}
-                className="text-gold hover:text-gold-light hover:bg-royal-purple/20 border border-gold/30 h-8 px-2 sm:px-4"
-              >
-                <ChevronLeft className="w-4 h-4 sm:mr-1" />
-                <span className="hidden sm:inline">Previous</span>
-              </Button>
-
-              <span className="text-xs sm:text-sm text-gold/80 px-2">
-                {currentPage + 1} / {totalPages}
-              </span>
-
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages - 1 || isFlipping}
-                className="text-gold hover:text-gold-light hover:bg-royal-purple/20 border border-gold/30 h-8 px-2 sm:px-4"
-              >
-                <span className="hidden sm:inline">Next</span>
-                <ChevronRight className="w-4 h-4 sm:ml-1" />
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Page number indicator */}
-        <div className="flex justify-center mt-6 space-x-3">
-          {Array.from({ length: totalPages }, (_, i) => (
-            <button
-              key={i}
-              onClick={() => handlePageChange(i)}
-              disabled={isFlipping}
-              className={`relative group transition-all duration-300 ${
-                i === currentPage ? "transform scale-125" : "hover:scale-110"
-              }`}
+          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-6 z-20">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 0 || isFlipping}
+              className="text-gold hover:text-gold hover:bg-black/30 backdrop-blur-sm rounded-full p-2 border border-gold/30 transition-all duration-300"
             >
-              <div
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  i === currentPage
-                    ? "bg-gold shadow-lg shadow-gold/50"
-                    : "bg-royal-purple/40 hover:bg-royal-purple/60"
-                }`}
-              />
-              <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-gold/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                {i === 0
-                  ? "Birthday"
-                  : i === totalPages - 1
-                  ? "Continuum"
-                  : `Poem ${i}`}
-              </span>
-            </button>
-          ))}
+              <ChevronLeft className="w-6 h-6" />
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages - 1 || isFlipping}
+              className="text-gold hover:text-gold hover:bg-black/30 backdrop-blur-sm rounded-full p-2 border border-gold/30 transition-all duration-300"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>

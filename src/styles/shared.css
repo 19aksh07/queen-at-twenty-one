@@ -1,0 +1,113 @@
+/* Base styles */
+:root {
+  --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+  --purple-gradient: linear-gradient(135deg, #4a1d96 0%, #2e1065 100%);
+  --page-gradient: linear-gradient(to bottom, #1a1a2e, #16213e);
+}
+
+/* Typography */
+.romantic-text {
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.02em;
+}
+
+.title-romantic {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.subtitle-romantic {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: #ffd700;
+  opacity: 0.9;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Button styles */
+.btn-royal {
+  background: var(--gold-gradient);
+  color: #1a1a2e;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-royal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* Book styles */
+.book-container {
+  background: var(--page-gradient);
+  box-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.1),
+    0 0 30px rgba(255, 215, 0, 0.05);
+}
+
+.page-content {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .romantic-text {
+    letter-spacing: 0.01em;
+  }
+  
+  .btn-royal {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/* Decorative elements */
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Smooth transitions */
+.page-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

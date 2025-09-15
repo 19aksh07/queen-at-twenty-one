@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, BookOpen, Sparkles } from "lucide-react";
+import "../styles/shared.css";
 
 interface LandingPageProps {
   onStartJourney: () => void;
@@ -23,72 +24,62 @@ const LandingPage = ({ onStartJourney }: LandingPageProps) => {
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-romantic-dark-purple to-romantic-dark-black-purple"
       onClick={createSparkle}
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 text-6xl animate-pulse">💜</div>
-        <div className="absolute top-40 right-32 text-4xl animate-bounce" style={{ animationDelay: '1s' }}>✨</div>
-        <div className="absolute bottom-32 left-32 text-5xl animate-pulse" style={{ animationDelay: '2s' }}>👑</div>
-        <div className="absolute bottom-20 right-20 text-4xl animate-bounce" style={{ animationDelay: '0.5s' }}>💫</div>
+        <div className="absolute top-[10%] left-[10%] text-6xl floating-element">💜</div>
+        <div className="absolute top-[20%] right-[15%] text-4xl floating-element" style={{ animationDelay: '1s' }}>✨</div>
+        <div className="absolute bottom-[20%] left-[15%] text-5xl floating-element" style={{ animationDelay: '2s' }}>👑</div>
+        <div className="absolute bottom-[10%] right-[10%] text-4xl floating-element" style={{ animationDelay: '0.5s' }}>💫</div>
       </div>
 
       {/* Sparkle effects */}
       {sparkles.map(sparkle => (
         <div
           key={sparkle.id}
-          className="sparkle text-2xl"
+          className="sparkle absolute text-2xl pointer-events-none"
           style={{
             left: sparkle.x,
             top: sparkle.y,
+            animation: 'sparkle 2s ease-in-out forwards'
           }}
         >
           ✨
         </div>
       ))}
 
-      <div className="text-center space-y-8 relative z-10 px-6 max-w-4xl">
-        {/* Crown decoration */}
-        <div className="flex justify-center mb-6">
-          <div className="text-8xl animate-bounce">👑</div>
-        </div>
-
-        {/* Main title */}
-        <h1 className="title-romantic relative">
-          Queen at 21 💜
-          <div className="heart-decoration"></div>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="subtitle-romantic max-w-2xl mx-auto">
-          A journey of love in 21 poems
-        </p>
-
-        {/* Decorative divider */}
-        <div className="flex items-center justify-center space-x-4 py-6">
-          <Heart className="w-6 h-6 text-royal-purple animate-pulse" />
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
-          <Heart className="w-6 h-6 text-gold animate-pulse" style={{ animationDelay: '0.5s' }} />
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
-          <Heart className="w-6 h-6 text-royal-purple animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="text-center space-y-8 relative z-10 px-4 sm:px-6 max-w-4xl mx-auto">
+        {/* Crown and Title */}
+        <div className="mb-12">
+          <div className="text-7xl sm:text-8xl filter drop-shadow-lg mb-8 floating-element">👑</div>
+          <h1 className="title-romantic relative">
+            Queen at 21
+            <span className="ml-3 inline-block">💜</span>
+          </h1>
+          <p className="subtitle-romantic mt-4 max-w-2xl mx-auto">
+            A journey of love in 21 poems
+          </p>
         </div>
 
         {/* Description */}
-        <p className="font-serif text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          Happy Birthday, Queen! 🎉 Today marks not just another year, but a new chapter in your story, a journey filled with love, dreams, and golden memories. May your heart be crowned with joy, your days sparkle with laughter, and every poem in this collection remind you how cherished you are. Here’s to you, to love, and to the magic of turning 21! 💜✨
-        </p>
+        <div className="max-w-2xl mx-auto px-4">
+          <p className="romantic-text text-lg sm:text-xl md:text-2xl text-gold/90 leading-relaxed">
+            Happy Birthday, Queen! <span className="inline-block">🎉</span> Today marks not just another year, but a new chapter in your story. A journey filled with love, dreams, and golden memories — captured in these poems written just for you. <span className="text-purple-300">💜</span>
+          </p>
+        </div>
 
         {/* Call to action button */}
-        <div className="pt-8">
+        <div className="pt-12">
           <Button
             onClick={onStartJourney}
-            className="btn-royal group relative overflow-hidden"
+            className="btn-royal group relative overflow-hidden transform hover:scale-105 transition-all duration-300"
             size="lg"
           >
-            <BookOpen className="w-5 h-5 mr-3 group-hover:animate-pulse" />
-            Open Book
-            <Sparkles className="w-5 h-5 ml-3 group-hover:animate-spin" />
+            <BookOpen className="w-5 h-5 mr-3" />
+            <span>Open Book</span>
+            <Sparkles className="w-5 h-5 ml-3" />
           </Button>
         </div>
       </div>
