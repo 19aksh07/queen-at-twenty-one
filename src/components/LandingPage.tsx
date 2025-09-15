@@ -66,7 +66,7 @@ const LandingPage = ({ onStartJourney }: LandingPageProps) => {
         {/* Description */}
         <div className="max-w-2xl mx-auto px-4">
           <p className="romantic-text text-lg sm:text-xl md:text-2xl text-gold/90 leading-relaxed">
-            Happy Birthday, Queen! <span className="inline-block">🎉</span> Today marks not just another year, but a new chapter in your story. A journey filled with love, dreams, and golden memories — captured in these poems written just for you. <span className="text-purple-300">💜</span>
+            Happy Birthday, Queen! <span className="inline-block">🎉</span> Today marks not just another year, but a new chapter in your story. A journey filled with love, dreams, and golden memories captured in these poems written just for you. <span className="text-purple-300">💜</span>
           </p>
         </div>
 

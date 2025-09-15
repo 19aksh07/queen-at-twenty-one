@@ -36,7 +36,7 @@ const BookPage = ({
 
   const renderSpecialBirthdayPage = () => (
     <div className="book-page h-full flex flex-col bg-gradient-to-b from-romantic-dark-purple to-romantic-dark-black-purple">
-      <div className="text-center space-y-6 max-w-3xl mx-auto px-4 py-8 md:py-12">
+      <div className="text-center space-y-6 max-w-3xl mx-auto px-2 py-8 md:py-12">
         <div className="relative">
           <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-4xl animate-pulse">✨</div>
           <div className="text-7xl sm:text-8xl mb-4 animate-float">🎂</div>
@@ -46,7 +46,7 @@ const BookPage = ({
         </h2>
         <div className="poem-container relative overflow-y-auto max-h-[60vh] md:max-h-[65vh] scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent rounded-lg backdrop-blur-sm bg-black/10">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/5 to-transparent pointer-events-none"></div>
-          <p className="romantic-text leading-relaxed text-lg md:text-xl lg:text-2xl px-6 py-8 relative z-10">
+          <p className="romantic-text leading-relaxed text-lg md:text-xl lg:text-2xl px-3 py-8 relative z-10">
             "Today the world shines brighter than sun,
             <br /> For it crowns my queen, who turns twenty-one.
             <br /> From stranger to friend, to love so true,
@@ -82,7 +82,7 @@ const BookPage = ({
 
   const renderFinalPage = () => (
     <div className="book-page h-full flex flex-col bg-gradient-to-b from-romantic-dark-purple to-romantic-dark-black-purple">
-      <div className="text-center space-y-8 max-w-3xl mx-auto px-4 py-12">
+      <div className="text-center space-y-8 max-w-3xl mx-auto px-2 py-12">
         <div className="relative">
           <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-4xl animate-pulse">✨</div>
           <div className="text-8xl mb-4 animate-float">💜</div>
@@ -97,7 +97,7 @@ const BookPage = ({
           <Button
             onClick={onClose}
             variant="outline"
-            className="relative group px-8 py-4 text-lg border-2 border-gold text-gold hover:bg-gold/10 transition-all duration-500"
+            className="relative group px-4 py-4 text-lg border-2 border-gold text-gold hover:bg-gold/10 transition-all duration-500"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-gold/20 to-transparent transform -skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></span>
             <span className="relative z-10 romantic-text">Close Book</span>
@@ -111,7 +111,7 @@ const BookPage = ({
 
   const renderPoemPage = (poem: Poem) => (
     <div className="book-page h-full flex flex-col bg-gradient-to-b from-romantic-dark-purple to-romantic-dark-black-purple">
-      <div className="space-y-6 max-w-3xl mx-auto px-4 py-8 md:py-12 w-full">
+      <div className="space-y-6 max-w-3xl mx-auto px-2 py-8 md:py-12 w-full">
         <div className="text-center mb-8 relative">
           <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 text-2xl opacity-50">✨</div>
           <h2 className="poem-title text-center text-2xl md:text-3xl lg:text-4xl inline-block relative">
